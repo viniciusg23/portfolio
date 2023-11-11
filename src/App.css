@@ -8,3 +8,38 @@
   height: 100vh;
 }
 
+body {
+  --ash-black: #222; 
+  --accent: var(--ash-black);
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent);
+  z-index: 2;
+}
+
+.page-button {
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+
+.page-button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: white;
+  transition: width .3s;
+}
+
+.page-button:hover::after {
+  width: 40px;
+}

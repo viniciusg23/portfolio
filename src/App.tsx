@@ -1,26 +1,20 @@
-import './App.css';
-import HomePage from './pages/HomePage';
-import NavBar from './components/NavBar';
-import { motion } from "framer-motion"
-import { Outlet, useLocation } from 'react-router-dom';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import { BrowserRouter } from "react-router-dom";
+import AnimatedRoutes from "./components/AnimatedRoutes";
+import { FirstLoadProvider } from "./context/FirstLoadProvider";
 
 
 function App() {
-    const location = useLocation();
 
     return (
         <div className="App">
-            <motion.div 
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.75, type: "spring", delay: 1.5 }}
-            >
+            <BrowserRouter>
                 <NavBar />
-            </motion.div>
-
-            <Outlet />
-
-
+                <FirstLoadProvider>
+                    <AnimatedRoutes />
+                </FirstLoadProvider>
+            </BrowserRouter>
         </div>
     );
 }

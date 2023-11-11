@@ -31,9 +31,9 @@ function HomePage() {
                     paddingY: "2em"
                 }}
             >
-                <Typography 
+                <Typography
                     textAlign="left"
-                    sx={{fontSize: "1.8em"}}
+                    sx={{ fontSize: "1.8em" }}
                 >
                     Oi 👋 Eu Sou o
                 </Typography>
@@ -45,7 +45,7 @@ function HomePage() {
                 >
                     Vinícius Gonzaga
                 </Typography>
-                <Typography 
+                <Typography
                     textAlign="right"
                     sx={{
                         fontSize: "1.5em"
@@ -72,45 +72,45 @@ function HomePage() {
                     animate={{ x: 0 }}
                     transition={{ duration: 1, type: "spring", delay: 1.0 }}
                 >
-                    <Box sx={{ 
-                        marginBottom: ".5em", 
+                    <Box sx={{
+                        marginBottom: ".5em",
                         display: "flex",
                         flexDirection: "row-reverse"
                     }}>
-                        <motion.div whileHover={{scale: 1.2, y: -10}}>
-                            <IconButton 
-                                aria-label="GitHub" 
+                        <motion.div whileHover={{ scale: 1.2, y: -10 }}>
+                            <IconButton
+                                aria-label="GitHub"
                                 onClick={() => handleSocial("https://github.com/viniciusg23")}
                             >
                                 <GitHub fontSize="large" htmlColor="#000" />
                             </IconButton>
                         </motion.div>
-                        
-                        <motion.div whileHover={{scale: 1.2, y: -10}}>
-                            <IconButton 
-                                aria-label="LinkedIn" 
+
+                        <motion.div whileHover={{ scale: 1.2, y: -10 }}>
+                            <IconButton
+                                aria-label="LinkedIn"
                                 onClick={() => handleSocial("https://www.linkedin.com/in/vin%C3%ADcius-gonzaga-guilherme-9a65a722a/")}
                             >
-                                <LinkedIn fontSize="large" htmlColor="#0A66C2"/>
+                                <LinkedIn fontSize="large" htmlColor="#0A66C2" />
                             </IconButton>
                         </motion.div>
 
 
-                        <motion.div whileHover={{scale: 1.2, y: -10}}>
-                            <IconButton 
-                                aria-label="Curriculum" 
+                        <motion.div whileHover={{ scale: 1.2, y: -10 }}>
+                            <IconButton
+                                aria-label="Curriculum"
                                 onClick={() => handleSocial("")}
                             >
-                                <TextSnippet fontSize="large" htmlColor="#ED6C02"/>
+                                <TextSnippet fontSize="large" htmlColor="#ED6C02" />
                             </IconButton>
                         </motion.div>
 
                     </Box>
                 </motion.div>
 
-                
 
-                <motion.div 
+
+                <motion.div
                     initial={{ x: -500 }}
                     animate={{ x: 0 }}
                     transition={{ duration: 1, type: "spring", delay: 0.5 }}
@@ -119,10 +119,10 @@ function HomePage() {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aspernatur corrupti praesentium, distinctio velit placeat adipisci magnam aut maxime perferendis repellendus fugiat fuga omnis esse animi minima iste facere fugit?
                     </Typography>
                 </motion.div>
-                
-                
             </Box>
+
         </Container>
+
     );
 }
 
