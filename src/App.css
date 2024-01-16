@@ -3,15 +3,31 @@
   padding: 0;
 }
 
+
+:root {
+  --primary: #222;
+  --primary-contrast: #ffffff;
+  --primary-darker: darken(var(--primary), 20%);
+
+  --background: #ffffff; 
+  --background-contrast: #000;
+}
+
 .App {
   text-align: center;
   height: 100vh;
 }
 
-body {
-  --ash-black: #222; 
-  --accent: var(--ash-black);
+.background {
+  background-color: var(--background);
+  color: var(--background-contrast);
 }
+
+.primary {
+  background-color: var(--primary);
+  color: var(--primary-contrast);
+}
+
 
 .privacy-screen {
   position: fixed;
@@ -19,14 +35,14 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--accent);
-  z-index: 2;
+  background-color: var(--primary);
+  z-index: 99;
 }
 
 .page-button {
   cursor: pointer;
   display: inline-block;
-  color: white;
+  color: var(--primary-contrast);
   text-decoration: none;
 }
 
@@ -36,10 +52,11 @@ body {
   display: block;
   width: 0;
   height: 3px;
-  background: white;
+  background: var(--primary-contrast);
   transition: width .3s;
 }
 
 .page-button:hover::after {
   width: 40px;
 }
+

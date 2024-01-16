@@ -1,5 +1,7 @@
-import { Container } from "@mui/material";
-import { motion, useIsPresent } from "framer-motion";
+import { Container, Typography } from "@mui/material";
+import { useIsPresent } from "framer-motion";
+import { aboutPageContent } from "../../data/aboutPageContent"
+import Title from "./components/Title";
 
 function AboutPage() {
 
@@ -9,11 +11,10 @@ function AboutPage() {
     return (
         <Container
             sx={{
-                // marginTop: "10vh",
                 height: "100%",
             }}
         >
-            wdwdad
+            <Title />
         </Container>
     );
 }

@@ -40,7 +40,8 @@ function HomePage() {
                 <Typography
                     sx={{
                         fontSize: "4.2em",
-                        fontWeight: "800"
+                        fontWeight: "900",
+                        textDecoration: "italic"
                     }}
                 >
                     Vinícius Gonzaga

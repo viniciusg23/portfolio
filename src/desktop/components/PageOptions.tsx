@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { pages } from "../configuration/PagesConfiguration";
+import { pages } from "../../configuration/PagesConfiguration";
 
 
 function PageOptions() {

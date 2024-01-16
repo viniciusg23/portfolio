@@ -1,9 +1,9 @@
-import { Box, AppBar, Container, Toolbar, IconButton, Menu, MenuItem, Typography, Button } from "@mui/material";
+import { Box, AppBar, Container, Toolbar, IconButton, Menu, MenuItem, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
 import { useState, MouseEvent } from "react";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { motion } from "framer-motion"
 import PageOptions from "./PageOptions";
-import { pages } from "../configuration/PagesConfiguration";
+import { pages } from "../../configuration/PagesConfiguration";
 
 
 
@@ -24,18 +24,18 @@ function NavBar() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.75, delay: 1.5 }}
+            
         >
             <AppBar 
-                position="relative" 
+                position="relative"
                 sx={{
-                    backgroundColor: "#000000", 
-                    paddingY: "0.4em", 
-                    zIndex: 1, 
-                    height: "10vh",
+                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue("--primary"),
+                    height: "8vh",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center"
                 }} 
+                className="primary"
             >
                 <Container >
                     <Toolbar disableGutters>
