@@ -1,63 +1,41 @@
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { Menu } from '@mui/icons-material';
-import { useState } from 'react';
-import { IconButton, Typography } from '@mui/material';
-import { pages } from '../../configuration/PagesConfiguration';
-import { useNavigate } from 'react-router-dom';
+import { Box, AppBar, Container, Toolbar } from "@mui/material";
+import { motion } from 'framer-motion';
+import PageOptions from './PageOptions';
 
 
 function NavBar() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const navigate = useNavigate();
-
-    const toggleDrawer = () => {
-        setIsOpen(prevState => !prevState);
-    }
-        
 
     return (
-        <div>
-            
-            <Box textAlign="left">
-                <IconButton size="large" onClick={toggleDrawer} >
-                    <Menu className="background"/>
-                </IconButton>
-            </Box>
-            
 
-            <Drawer
-                anchor={"top"}
-                open={isOpen}
-                onClose={toggleDrawer}
-                sx={{zIndex: 2}}
+        <motion.div
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.75, delay: 1 }}
+        >
+            <AppBar 
+                elevation={0}
+                position="relative"
+                sx={{
+                    backgroundColor: getComputedStyle(document.documentElement).getPropertyValue("--background"),
+                    height: "7vh",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                }} 
+                className="primary"
             >
-                <List className="primary" sx={{zIndex: 2}}>
-                    {pages.map((page) => (
-                        <ListItem key={page.name} disablePadding>
-                            <ListItemButton 
-                                sx={{textAlign: "center"}} 
-                                onClick={() => {
-                                    toggleDrawer();
-                                    navigate(`/${page.path}`);
-                                }}
-                            >
-                                <ListItemText>
-                                    <Typography className="page-button">{page.name}</Typography>    
-                                </ListItemText> 
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
-                
-            
-        </div>
+                <Container>
+                    <Toolbar disableGutters>
+
+                        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-evenly' }}>
+                            <PageOptions />
+                        </Box>
+
+                    </Toolbar>
+                </Container>
+            </AppBar>
+        </motion.div>
     );
 }
 

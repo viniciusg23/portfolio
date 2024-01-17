@@ -1,36 +1,8 @@
-import { Box, Chip, Container, Divider, Grid, Paper, Typography } from "@mui/material";
+import { Box, Chip, Container, Divider, Grid, Paper, SvgIcon, Typography } from "@mui/material";
 import { motion, useIsPresent } from "framer-motion";
+import { aboutPageContent } from "../data/aboutPageContent";
 
 function AboutPage() {
-
-    const isPresent = useIsPresent();
-
-    const interest = [
-        {
-            name: "Desenvolvimento Backend",
-            icon: null
-        },
-        {
-            name: "Desenvolvimento Web",
-            icon: null
-        },
-        {
-            name: "Cloud",
-            icon: null
-        },
-        {
-            name: "Banco de Dados",
-            icon: null
-        },
-        {
-            name: "Desenvolvimento Mobile",
-            icon: null
-        },
-        {
-            name: "Princípios SOLID",
-            icon: null
-        }
-    ]
 
     return (
         <Container
@@ -39,10 +11,10 @@ function AboutPage() {
             }}
         >
 
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", my: "1em" }}>
                 <Typography
                     sx={{
-                        fontWeight: "700",
+                        fontWeight: "800",
                         fontSize: "2em"
                     }}
                 >
@@ -60,16 +32,17 @@ function AboutPage() {
             >
                 <Box
                     sx={{
-                        width: "256px",
-                        height: "256px",
+                        width: "156px",
+                        height: "156px",
                         overflow: "hidden",
                         borderRadius: "50%",
-                        position: "relative"
+                        position: "relative",
+                        border: "solid 3px #000000"
                     }}
                 >
                     <img
                         src="/profile.jpg"
-                        width="256px"
+                        width="156px"
                         style={{
                             width: "100%",
                             height: "auto",
@@ -83,17 +56,22 @@ function AboutPage() {
 
                 <Box >
                     <Typography textAlign="left" mt="1em">
-                        Muito prazer! Atualmente faço graduação em Engenharia de Software na PUC Minas. Eu sou apaixonado pela tecnologia, sempre buscando novos conhecimentos no Frontend e computação em núvem mas principalmente em tecnologias e teórias para o Backend. Busco sempre o máximo de qualidade em meus projetos, seguindo os melhores padrões, princípios e arquiteturas para o mesmo.
+                        {aboutPageContent.about}
                     </Typography>
 
-                    <Divider textAlign="left" style={{ marginTop: "1em" }}>
-                        <Chip label="Interesses" />
+                    <Divider textAlign="left" sx={{my: "1em"}}>
+                        <Typography sx={{ fontWeight: 600, fontSize: "1.2em" }} >
+                            Interesses
+                        </Typography>
                     </Divider>
 
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {Array.from(Array(6)).map((_, index) => (
-                            <Grid item xs={2} sm={4} md={4} key={index}>
-                                <Paper></Paper>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 6 }}>
+                        {aboutPageContent.interests.map((interest, index) => (
+                            <Grid item xs={1} sm={2} md={3} key={index}>
+                                <Paper>
+                                    <interest.icon />
+                                    <Typography>{interest.name}</Typography>
+                                </Paper>
                             </Grid>
                         ))}
                     </Grid>

@@ -59,11 +59,11 @@ export const pages: IPageOption[] = [
         element: < SkillsPage />,
         mobileElement: < MobileSkillsPage />
     },
-    {
-        name: "Contato",
-        path: "contact",
-        element: < ContactPage />,
-        mobileElement: < MobileContactPage />
-    }
+    // {
+    //     name: "Contato",
+    //     path: "contact",
+    //     element: < ContactPage />,
+    //     mobileElement: < MobileContactPage />
+    // }
 ];
 

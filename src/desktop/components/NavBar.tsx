@@ -2,7 +2,7 @@ import { Box, AppBar, Container, Toolbar, IconButton, Menu, MenuItem, Typography
 import { useState, MouseEvent } from "react";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { motion } from "framer-motion"
-import PageOptions from "./PageOptions";
+import PageOptions from "../../mobile/components/PageOptions";
 import { pages } from "../../configuration/PagesConfiguration";
 
 

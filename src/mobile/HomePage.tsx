@@ -35,7 +35,6 @@ function HomePage() {
                     sx={{
                         width: "100%",
                         backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--background'),
-                        // backgroundColor: "red",
                         borderBottom: "2px solid #000",
                         paddingBottom: "1.5em",
                         paddingY: "1.5em"
@@ -51,7 +50,9 @@ function HomePage() {
                         textAlign="center"
                         sx={{
                             fontSize: "2.5em",
-                            fontWeight: "800"
+                            fontWeight: "800",
+                            lineHeight: 1,
+                            my: ".5em"
                         }}
                     >
                         Vinícius Gonzaga
@@ -100,7 +101,8 @@ function HomePage() {
                     <Box sx={{
                         marginBottom: ".5em",
                         display: "flex",
-                        justifyContent: "center"
+                        justifyContent: "center",
+                        mt: "1em"
                     }}>
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton

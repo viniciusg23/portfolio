@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -42,7 +44,7 @@
 .page-button {
   cursor: pointer;
   display: inline-block;
-  color: var(--primary-contrast);
+  color: var(--background-contrast);
   text-decoration: none;
 }
 
@@ -52,7 +54,7 @@
   display: block;
   width: 0;
   height: 3px;
-  background: var(--primary-contrast);
+  background: var(--background-contrast);
   transition: width .3s;
 }
 
