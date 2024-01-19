@@ -1,85 +1,144 @@
-import { Box, Chip, Container, Divider, Grid, Paper, SvgIcon, Typography } from "@mui/material";
-import { motion, useIsPresent } from "framer-motion";
-import { aboutPageContent } from "../data/aboutPageContent";
+import { Box, Container, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { aboutPageContent } from "../data/aboutPageContent"
+import Typewriter from 'typewriter-effect';
+import { motion } from "framer-motion";
+import Title from "../components/Title";
+import SubTitle from "../components/SubTitle";
+
 
 function AboutPage() {
 
+    const theme = useTheme();
+    let interestDelay = 0.1;
+
+    const initialAnimation = useMediaQuery(theme.breakpoints.down("sm"));
+
     return (
         <Container
+            maxWidth="sm"
             sx={{
                 height: "100%",
             }}
         >
 
-            <Box sx={{ display: "flex", my: "1em" }}>
-                <Typography
-                    sx={{
-                        fontWeight: "800",
-                        fontSize: "2em"
-                    }}
-                >
-                    Sobre mim
-                </Typography>
-            </Box>
+            <Title title="Sobre Min"/>
 
             <Box
                 sx={{
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
+                    position: "relative",
+                    backgroundColor: theme.palette.background.default,
+                    zIndex: 2
                 }}
             >
                 <Box
                     sx={{
-                        width: "156px",
-                        height: "156px",
-                        overflow: "hidden",
-                        borderRadius: "50%",
-                        position: "relative",
-                        border: "solid 3px #000000"
+                        background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+                        width: "212px",
+                        padding: "0.75em",
+                        borderRadius: "50%"
                     }}
                 >
-                    <img
-                        src="/profile.jpg"
-                        width="156px"
-                        style={{
-                            width: "100%",
-                            height: "auto",
+                    <Box
+                        sx={{
+                            width: "212px",
+                            height: "212px",
+                            overflow: "hidden",
                             borderRadius: "50%",
-                            position: "absolute",
-                            top: 0,
-                            left: 0
+                            position: "relative",
+                            background: "#000"
+
                         }}
-                    />
+                    >
+                        <img
+                            src="/profile.jpg"
+                            width="212px"
+                            style={{
+                                width: "100%",
+                                height: "auto",
+                                borderRadius: "50%",
+                                position: "absolute",
+                                top: 0,
+                                left: 0
+                            }}
+                        />
+                    </Box>
                 </Box>
 
-                <Box >
-                    <Typography textAlign="left" mt="1em">
+
+                <Box
+                    sx={{
+                        position: "relative",
+                        mt: "1em"
+                    }}
+                >
+                    <Typography textAlign="left" sx={{ display: "relative", color: theme.palette.background.default }}>
                         {aboutPageContent.about}
                     </Typography>
 
-                    <Divider textAlign="left" sx={{my: "1em"}}>
-                        <Typography sx={{ fontWeight: 600, fontSize: "1.2em" }} >
-                            Interesses
-                        </Typography>
-                    </Divider>
+                    <Typography
+                        sx={{
+                            textAlign: "left",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                        }}
+                    >
+                        <Typewriter
+                            options={{
+                                strings: aboutPageContent.about,
+                                autoStart: true,
+                                delay: 0.3
+                            }}
+                        />
+                    </Typography>
 
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 6 }}>
-                        {aboutPageContent.interests.map((interest, index) => (
-                            <Grid item xs={1} sm={2} md={3} key={index}>
-                                <Paper>
-                                    <interest.icon />
-                                    <Typography>{interest.name}</Typography>
-                                </Paper>
-                            </Grid>
-                        ))}
-                    </Grid>
+                    <SubTitle title="Interesses"/>
 
                 </Box>
-
-
             </Box>
+
+            <Box mt="1em" px=".05em">
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 9 }}>
+                    {aboutPageContent.interests.map((interest, index) => {
+
+                        interestDelay += 0.3
+
+                        return (
+                            <Grid item xs={1} sm={2} md={3} key={index}>
+                                <motion.div
+                                    initial={initialAnimation ? {x: -600} : {y: -300}}
+                                    animate={{ x: 0, y: 0 }}
+                                    transition={{ duration: 1, type: "spring", delay: interestDelay }}
+                                >
+                                    <motion.div whileHover={{ scale: 1.075, y: -10 }}>
+                                        <Paper
+                                            sx={{
+                                                display: "flex",
+                                                gap: "1em",
+                                                padding: "1em",
+                                                background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`
+
+                                            }}
+                                        >
+                                            <interest.icon htmlColor={theme.palette.background.default} />
+                                            <Typography color={theme.palette.background.default}>
+                                                {interest.name}
+                                            </Typography>
+                                        </Paper>
+                                    </motion.div>
+
+                                </motion.div>
+                            </Grid>
+                        )
+                    })}
+
+                </Grid>
+            </Box>
+
         </Container>
     );
 }

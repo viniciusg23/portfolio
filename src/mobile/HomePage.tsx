@@ -1,7 +1,9 @@
 import { Box, Container, IconButton, Typography, useTheme } from "@mui/material";
 import { GitHub, LinkedIn, TextSnippet } from "@mui/icons-material";
 import Typewriter from 'typewriter-effect';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { homePageContent } from "../data/homePageContent";
+
 
 
 function HomePage() {
@@ -12,21 +14,34 @@ function HomePage() {
         window.open(url, "_blank");
     }
 
+    const handleDownload = () => {
+        fetch("curriculum.pdf").then((response) => {
+            response.blob().then((blob) => {             
+                const fileURL = window.URL.createObjectURL(blob);
+                const alink = document.createElement("a");
+                alink.href = fileURL;
+                alink.download = "Currículo.pdf";
+                alink.click();
+            });
+        });
+    };
+
     return (
         <Container
+            maxWidth="sm"
             sx={{
                 height: "100%",
-                width: "80%",
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: "2em"
+                gap: "2em",
+                px: "2em"
             }}
         >
 
             <motion.div
-                style={{zIndex: 2}}
+                style={{zIndex: 2, width: "100%"}}
                 initial={{ y: -200, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, type: "spring", delay: 0 }}
@@ -34,7 +49,7 @@ function HomePage() {
                 <Box
                     sx={{
                         width: "100%",
-                        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--background'),
+                        backgroundColor: "background.default",
                         borderBottom: "2px solid #000",
                         paddingBottom: "1.5em",
                         paddingY: "1.5em"
@@ -55,7 +70,7 @@ function HomePage() {
                             my: ".5em"
                         }}
                     >
-                        Vinícius Gonzaga
+                        {homePageContent.name}
                     </Typography>
                     <Typography
                         textAlign="right"
@@ -65,7 +80,7 @@ function HomePage() {
                     >
                         <Typewriter
                             options={{
-                                strings: ["Engenheiro de Software", "Desenvolvedor Back-end"],
+                                strings: homePageContent.typewriter,
                                 autoStart: true,
                                 loop: true
                             }}
@@ -89,7 +104,7 @@ function HomePage() {
                     transition={{ duration: 1, type: "spring", delay: 1 }}
                 >
                     <Typography textAlign="left">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aspernatur corrupti praesentium, distinctio velit placeat adipisci magnam aut maxime perferendis repellendus fugiat fuga omnis esse animi minima iste facere fugit?
+                        {homePageContent.content}
                     </Typography>
                 </motion.div>
 
@@ -107,7 +122,7 @@ function HomePage() {
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton
                                 aria-label="GitHub"
-                                onClick={() => handleSocial("https://github.com/viniciusg23")}
+                                onClick={() => handleSocial(homePageContent.github)}
                             >
                                 <GitHub fontSize="large" htmlColor="#000" />
                             </IconButton>
@@ -116,7 +131,7 @@ function HomePage() {
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton
                                 aria-label="LinkedIn"
-                                onClick={() => handleSocial("https://www.linkedin.com/in/vin%C3%ADcius-gonzaga-guilherme-9a65a722a/")}
+                                onClick={() => handleSocial(homePageContent.linkedin)}
                             >
                                 <LinkedIn fontSize="large" htmlColor="#0A66C2" />
                             </IconButton>
@@ -126,7 +141,7 @@ function HomePage() {
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton
                                 aria-label="Curriculum"
-                                onClick={() => handleSocial("")}
+                                onClick={handleDownload}
                             >
                                 <TextSnippet fontSize="large" htmlColor="#ED6C02" />
                             </IconButton>

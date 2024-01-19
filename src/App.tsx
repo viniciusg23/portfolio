@@ -4,37 +4,33 @@ import AnimatedRoutes from "./helpers/AnimatedRoutes";
 import { FirstLoadProvider } from "./context/FirstLoadProvider";
 import { ThemeProvider, createTheme, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useMemo } from "react";
-import NavBar from "./desktop/components/NavBar";
-import MobileNavBar from "./mobile/components/NavBar";
+import NavBar from "./components/NavBar";
+import { ColorModeContextProvider } from "./context/ColorModeContext";
 
 
 function App() {
 
-    const theme = createTheme({
-        typography: {
-          fontFamily: "Jost, sans-serif",
-        },
-    });
+    const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-    const navigationBar = useMemo(() => {
-        return isMobile ? <MobileNavBar/> : <NavBar />;
-    }, [isMobile]);
+    // const navigationBar = useMemo(() => {
+    //     return isMobile ? <MobileNavBar/> : <NavBar />;
+    // }, [isMobile]);
 
 
 
     return (
         <div className="App">
-            <ThemeProvider theme={theme}>
+            <ColorModeContextProvider>
                 <BrowserRouter>
                     <FirstLoadProvider>
                         <>
-                            {navigationBar}
+                            <NavBar />
                             <AnimatedRoutes isMobile={isMobile}/>
                         </>
                     </FirstLoadProvider>
                 </BrowserRouter>
-            </ThemeProvider>
+            </ColorModeContextProvider>
         </div>
     );
 }

@@ -5,8 +5,6 @@ import AnimatePageChanger from "./AnimatePageChanger";
 import { pages } from "../configuration/PagesConfiguration";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import NavBar from "../desktop/components/NavBar";
-import MobileNavBar from "../mobile/components/NavBar";
 
 interface IAnimatedRoutesProps {
     isMobile: boolean;
