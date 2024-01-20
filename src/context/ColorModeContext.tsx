@@ -41,7 +41,7 @@ export function ColorModeContextProvider({children} : any){
                     mode: "light",
                     primary: {
                         main: "#222",
-                        contrastText: "#000"
+                        contrastText: "#fff"
                     },
                     background: {
                         default: "#fff",

@@ -3,6 +3,7 @@ import { GitHub, LinkedIn, TextSnippet } from "@mui/icons-material";
 import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 import { homePageContent } from "../data/homePageContent";
+import { outsideLink } from "../helpers/outsideLink";
 
 
 
@@ -10,9 +11,9 @@ function HomePage() {
 
     const theme = useTheme();
 
-    const handleSocial = (url: string) => {
-        window.open(url, "_blank");
-    }
+    // const handleSocial = (url: string) => {
+    //     window.open(url, "_blank");
+    // }
 
     const handleDownload = () => {
         fetch("curriculum.pdf").then((response) => {
@@ -122,7 +123,7 @@ function HomePage() {
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton
                                 aria-label="GitHub"
-                                onClick={() => handleSocial(homePageContent.github)}
+                                onClick={() => outsideLink(homePageContent.github)}
                             >
                                 <GitHub fontSize="large" htmlColor="#000" />
                             </IconButton>
@@ -131,7 +132,7 @@ function HomePage() {
                         <motion.div whileHover={{ scale: 1.2, y: -10 }}>
                             <IconButton
                                 aria-label="LinkedIn"
-                                onClick={() => handleSocial(homePageContent.linkedin)}
+                                onClick={() => outsideLink(homePageContent.linkedin)}
                             >
                                 <LinkedIn fontSize="large" htmlColor="#0A66C2" />
                             </IconButton>

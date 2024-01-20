@@ -25,6 +25,7 @@ function PageOptions() {
                         transition={{ duration: 0.5, type: "spring", delay: currentDelay}}
                     >
                         <Typography
+                            color="primary"
                             sx={{ 
                                 cursor: "pointer",
                                 display: "inline-block",

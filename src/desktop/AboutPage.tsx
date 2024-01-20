@@ -4,6 +4,7 @@ import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
+import TypewriterText from "../components/TypewriterText";
 
 
 function AboutPage() {
@@ -67,36 +68,11 @@ function AboutPage() {
                 </Box>
 
 
-                <Box
-                    sx={{
-                        position: "relative",
-                        mt: "1em"
-                    }}
-                >
-                    <Typography textAlign="left" sx={{ display: "relative", color: theme.palette.background.default }}>
-                        {aboutPageContent.about}
-                    </Typography>
-
-                    <Typography
-                        sx={{
-                            textAlign: "left",
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                        }}
-                    >
-                        <Typewriter
-                            options={{
-                                strings: aboutPageContent.about,
-                                autoStart: true,
-                                delay: 0.3
-                            }}
-                        />
-                    </Typography>
-
+                <Box mt="1em">
+                    <TypewriterText text={aboutPageContent.about}/>
                     <SubTitle title="Interesses"/>
-
                 </Box>
+                
             </Box>
 
             <Box mt="1em">

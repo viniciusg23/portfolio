@@ -4,29 +4,11 @@
 }
 
 
-:root {
-  --primary: #222;
-  --primary-contrast: #ffffff;
-  --primary-darker: darken(var(--primary), 20%);
-
-  --background: #ffffff; 
-  --background-contrast: #000;
-}
-
 .App {
   text-align: center;
   height: 100vh;
 }
 
-.background {
-  background-color: var(--background);
-  color: var(--background-contrast);
-}
-
-.primary {
-  background-color: var(--primary);
-  color: var(--primary-contrast);
-}
 
 
 .privacy-screen {
