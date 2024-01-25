@@ -21,12 +21,14 @@ function App() {
 
     return (
         <div className="App">
+            
             <ColorModeContextProvider>
+                
                 <BrowserRouter>
                     <FirstLoadProvider>
                         <>
                             <NavBar />
-                            <AnimatedRoutes isMobile={isMobile}/>
+                            <AnimatedRoutes isMobile={isMobile} />
                         </>
                     </FirstLoadProvider>
                 </BrowserRouter>

@@ -1,6 +1,8 @@
 export interface IProjectsPageContent {
-    name: string;
+    projectName: string;
     url?: string;
+    username: string;
+    repositoryName: string;
     gitHubRepository: string;
     stack: {
         name: string;
@@ -11,7 +13,9 @@ export interface IProjectsPageContent {
 
 export const projectsPageContent: IProjectsPageContent[] = [
     {
-        name: "IStock - Gerenciador de Estoque",
+        projectName: "IStock - Gerenciador de Estoque",
+        username: "viniciusg23",
+        repositoryName: "stock-manager",
         gitHubRepository: "https://github.com/viniciusg23/stock-manager",
         stack: [
             {name: "Typescript", skillIconName: "ts"},
@@ -26,8 +30,10 @@ export const projectsPageContent: IProjectsPageContent[] = [
         description: "IStock é uma ferramenta fácil de utilizar para gerenciamento de estoque."
     },
     {
-        name: "Shopping Cart",
+        projectName: "Shopping Cart",
         url: "#",
+        username: "viniciusg23",
+        repositoryName: "",
         gitHubRepository: "https://github.com/viniciusg23/shopping-cart-with-redux",
         stack: [
             {name: "Typescript", skillIconName: "ts"},

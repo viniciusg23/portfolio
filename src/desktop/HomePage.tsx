@@ -9,10 +9,6 @@ function HomePage() {
 
     const theme = useTheme();
 
-    // const handleSocial = (url: string) => {
-    //     window.open(url, "_blank");
-    // }
-
     const handleDownload = () => {
         fetch("curriculum.pdf").then((response) => {
             response.blob().then((blob) => {             
@@ -55,7 +51,9 @@ function HomePage() {
                     sx={{
                         fontSize: "4.2em",
                         fontWeight: "900",
-                        textDecoration: "italic"
+                        textDecoration: "italic",
+                        lineHeight: 1,
+                        my: "0.5em"
                     }}
                 >
                     {homePageContent.name}

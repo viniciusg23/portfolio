@@ -1,35 +1,23 @@
 import { Visibility, GitHub } from "@mui/icons-material";
 import { Paper, Typography, IconButton, Divider, Chip, Avatar, Box, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IProjectsPageContent } from "../data/projectsPageContent";
 import { outsideLink } from "../helpers/outsideLink";
 
 
+interface IProjectCardProps {
+    project: IProjectsPageContent;
+    setModalOpen: () => void;
+    setSelectedProject: (project: string) => void;
+}
 
+function ProjectCard(props: IProjectCardProps) {
 
-function ProjectCard(props: IProjectsPageContent) {
-
-    const { name, url, gitHubRepository, stack, description } = props;
+    const { projectName, url, username, repositoryName, gitHubRepository, stack, description } = props.project;
 
     const theme = useTheme();
     const navigate = useNavigate();
 
-    const [lineCount, setLineCount] = useState<number>(4); // Inicializa com 4 linhas
-    const typographyRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        // Atualiza o número de linhas com base na altura disponível
-        if (typographyRef.current) {
-            const typographyHeight = typographyRef.current.clientHeight;
-            const lineHeight = parseInt(
-                window.getComputedStyle(typographyRef.current).lineHeight
-            );
-            const newLineCount = Math.floor(typographyHeight / lineHeight);
-            setLineCount(newLineCount);
-        }
-    }, [description]);
 
     return (
 
@@ -38,10 +26,28 @@ function ProjectCard(props: IProjectsPageContent) {
                 marginBottom: 3,
                 padding: "1em",
                 background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
-                height: "35vh",
                 position: "relative"
             }}
         >
+
+            <style>
+                {`
+                    ::-webkit-scrollbar {
+                        width: 0.25em;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background-color: ${theme.palette.background.paper};
+                        border-radius: 1.5em;
+                    }
+
+                    ::-webkit-scrollbar-track {
+                        background-color: ${theme.palette.primary.main};
+                        
+                    }
+                `}
+            </style>
+
             <Box
                 sx={{
                     display: "flex",
@@ -50,7 +56,7 @@ function ProjectCard(props: IProjectsPageContent) {
                 }}
             >
                 <Typography color={theme.palette.background.default} fontWeight={700} fontSize="1.25em">
-                    {name}
+                    {projectName}
                 </Typography>
                 <Box>
                     {url &&
@@ -68,47 +74,51 @@ function ProjectCard(props: IProjectsPageContent) {
 
             <Box
                 sx={{
-                    textAlign: "left",
                     mt: "0.5em",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.25em"
+                    height: "25vh",
+                    overflow: "auto"
                 }}
             >
-
-                {stack.map((tech, index) => (
-                    <Chip
-                        size="small"
-                        avatar={<Avatar alt={tech.name} src={`https://skillicons.dev/icons?i=${tech.skillIconName}`} />}
-                        label={tech.name}
-                        sx={{
-                            color: theme.palette.primary.contrastText,
-                            backgroundColor: theme.palette.primary.light,
-                        }}
-                    />
-                ))}
-
-            </Box>
-
-            <Box>
-                <Typography
-                    
-                    textAlign="left"
-                    color="primary.contrastText"
-                    mt="0.5em"
+                <Box
+                    sx={{
+                        textAlign: "left",
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "0.25em",
+                        position: "sticky",
+                        top: 0
+                    }}
                 >
-                    {description}
-                </Typography>
-            </Box>
-            
 
-            <Box
-                textAlign="left"
-                sx={{
-                    position: "absolute",
-                    bottom: "1em"
-                }}
-            >
+                    {stack.map((tech, index) => (
+                        <Chip
+                            key={index}
+                            size="small"
+                            avatar={<Avatar alt={tech.name} src={`https://skillicons.dev/icons?i=${tech.skillIconName}`} />}
+                            label={tech.name}
+                            sx={{
+                                color: theme.palette.primary.contrastText,
+                                backgroundColor: theme.palette.primary.light,
+                            }}
+                        />
+                    ))}
+
+                </Box>
+
+                <Box>
+                    <Typography
+                        textAlign="left"
+                        color="primary.contrastText"
+                        mt="0.5em"
+                    >
+                        {description}
+                    </Typography>
+                </Box>
+            </Box>
+
+
+
+            <Box textAlign="left">
                 <Typography
                     color="primary.contrastText"
                     sx={{
@@ -129,7 +139,10 @@ function ProjectCard(props: IProjectsPageContent) {
                             }
                         }
                     }}
-                    onClick={() => navigate(`/#`)}
+                    onClick={() => {
+                        props.setModalOpen();
+                        props.setSelectedProject(`${username}/${repositoryName}/`)
+                    }}
                 >
                     Detalhes &rarr;
                 </Typography>

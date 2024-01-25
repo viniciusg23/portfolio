@@ -68,7 +68,7 @@ function HomePage() {
                             fontSize: "2.5em",
                             fontWeight: "800",
                             lineHeight: 1,
-                            my: ".5em"
+                            my: "0.5em"
                         }}
                     >
                         {homePageContent.name}

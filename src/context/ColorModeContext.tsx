@@ -75,6 +75,7 @@ export function ColorModeContextProvider({children} : any){
 
     return (
         <ColorModeContext.Provider value={colorMode}>
+            
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </ColorModeContext.Provider>
     )

@@ -21,4 +21,9 @@
   z-index: 99;
 }
 
-
+.color-chip {
+  padding: 0.25em;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: red;
+}
