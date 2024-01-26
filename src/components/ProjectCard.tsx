@@ -8,16 +8,14 @@ import { outsideLink } from "../helpers/outsideLink";
 interface IProjectCardProps {
     project: IProjectsPageContent;
     setModalOpen: () => void;
-    setSelectedProject: (project: string) => void;
+    setSelectedProjectPath: (project: string) => void;
+    setSelectedGitHubRepository: (project: string) => void;
 }
 
 function ProjectCard(props: IProjectCardProps) {
 
     const { projectName, url, username, repositoryName, gitHubRepository, stack, description } = props.project;
-
     const theme = useTheme();
-    const navigate = useNavigate();
-
 
     return (
 
@@ -34,6 +32,7 @@ function ProjectCard(props: IProjectCardProps) {
                 {`
                     ::-webkit-scrollbar {
                         width: 0.25em;
+                        height: 0.25em;
                     }
 
                     ::-webkit-scrollbar-thumb {
@@ -141,7 +140,8 @@ function ProjectCard(props: IProjectCardProps) {
                     }}
                     onClick={() => {
                         props.setModalOpen();
-                        props.setSelectedProject(`${username}/${repositoryName}/`)
+                        props.setSelectedProjectPath(`${username}/${repositoryName}/`);
+                        props.setSelectedGitHubRepository(gitHubRepository)
                     }}
                 >
                     Detalhes &rarr;

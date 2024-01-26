@@ -33,7 +33,7 @@ export const projectsPageContent: IProjectsPageContent[] = [
         projectName: "Shopping Cart",
         url: "#",
         username: "viniciusg23",
-        repositoryName: "",
+        repositoryName: "shopping-cart-with-redux",
         gitHubRepository: "https://github.com/viniciusg23/shopping-cart-with-redux",
         stack: [
             {name: "Typescript", skillIconName: "ts"},

@@ -10,8 +10,8 @@ import ProjectDetails from "../components/ProjectDetails";
 function ProjectsPage() {
 
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const [selectedProject, setSelectedProject] = useState<string>("");
-
+    const [selectedProjectPath, setSelectedProjectPath] = useState<string>("");
+    const [selectedGitHubRepository, setSelectedGitHubRepository] = useState<string>("");
 
     const handleOpen = () => setModalOpen(true);
     const handleClose = () => setModalOpen(false);
@@ -28,7 +28,8 @@ function ProjectsPage() {
 
             <ProjectDetails 
                 isOpen={modalOpen}
-                selectedProject={selectedProject}
+                selectedProject={selectedProjectPath}
+                selectedGitHubRepository={selectedGitHubRepository}
                 handleClose={handleClose}
             />
 
@@ -43,8 +44,8 @@ function ProjectsPage() {
                             <ProjectCard
                                 project={project}
                                 setModalOpen={handleOpen}
-                                setSelectedProject={setSelectedProject}
-
+                                setSelectedProjectPath={setSelectedProjectPath}
+                                setSelectedGitHubRepository={setSelectedGitHubRepository}
                             />
                         </Grid>
                     ))}

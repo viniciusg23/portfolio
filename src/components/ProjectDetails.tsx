@@ -1,7 +1,7 @@
-import { Box, Paper, Typography, Link as MuiLink, IconButton, Fade, Modal } from "@mui/material";
+import { Box, Paper, Typography, Link as MuiLink, IconButton, Fade, Modal, useTheme } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown"
 
 import "github-markdown-css/github-markdown-light.css";
 
@@ -12,18 +12,21 @@ import { useIsMobile } from "../helpers/IsMobile";
 interface IProjectDetailsProps {
     isOpen: boolean;
     selectedProject: string;
+    selectedGitHubRepository: string;
     handleClose: () => any;
 }
 
 function ProjectDetails(props: IProjectDetailsProps) {
-    const { isOpen, selectedProject, handleClose } = props;
+    const { isOpen, selectedProject, selectedGitHubRepository, handleClose } = props;
     const [readme, setReadme] = useState<string>("");
+
+    const theme = useTheme();
     const isMobile = useIsMobile();
 
     const Image = (props: any) => {
         const { alt, src, width } = props;
 
-        if (src.startsWith('http://') || src.startsWith('https://')) {
+        if (src.startsWith("http://") || src.startsWith("https://")) {
             return <img alt={alt} src={src} style={{ width: width }} />;
         }
 
@@ -33,7 +36,7 @@ function ProjectDetails(props: IProjectDetailsProps) {
     const Link = (props: any) => {
         const { children, href } = props;
 
-        if (href.startsWith('http://') || href.startsWith('https://')) {
+        if (href.startsWith("http://") || href.startsWith("https://")) {
             return <a href={href} target="_blank">{children}</a>;
         }
 
@@ -69,46 +72,40 @@ function ProjectDetails(props: IProjectDetailsProps) {
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     minWidth: "200px",
-                    width: "90%",
+                    width: isMobile ? "100%" : "90%",
                     maxWidth: "980px",
-                    height: "90%",
-                    overflow: "auto"
+                    height: isMobile ? "100%" : "90%",
+                    overflow: "hidden",
+                    outline: "none",
                 }}>
                     <Box
                         sx={{
+                            height: "100%",
                             width: "100%",
-                            backgroundColor: "primary.main",
-                            paddingY: "1em",
-                            position: "sticky",
-                            top: 0,
-                            display: "flex",
-                            alignItems: "center"
+                            position: "relative",
+                            overflow: "auto"
                         }}
                     >
-                        <Box>
-                            <Typography color="primary.contrastText" ml="1em">Detalhes buscados de: </Typography>
-                            <MuiLink color="primary.contrastText" sx={{ cursor: "pointer" }}>https://github.com/viniciusg23/stock-manager</MuiLink>
-                        </Box>
-                        <IconButton aria-label="delete">
-                            <Close />
-                        </IconButton>
-                    </Box>
 
-                    <Box
-                        className="markdown-body"
-                        sx={{
-                            padding: isMobile ? "15px" : "45px",
-                        }}
-                    >
-                        <ReactMarkdown
-                            components={{
-                                img: Image,
-                                a: Link
+                        
+
+                        <Box
+                            className="markdown-body"
+                            sx={{
+                                padding: isMobile ? "15px" : "45px",
                             }}
-                            rehypePlugins={[rehypeRaw]}
-                            remarkPlugins={[remarkGfm]}
-                            children={readme}
-                        />
+                        >
+                            <ReactMarkdown
+                                components={{
+                                    img: Image,
+                                    a: Link
+                                }}
+                                rehypePlugins={[rehypeRaw]}
+                                remarkPlugins={[remarkGfm]}
+                                children={readme}
+                            />
+                        </Box>
+
                     </Box>
 
                 </Paper>
