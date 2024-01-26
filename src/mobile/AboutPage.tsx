@@ -90,7 +90,7 @@ function AboutPage() {
                                     animate={{ x: 0, y: 0 }}
                                     transition={{ duration: 1, type: "spring", delay: interestDelay }}
                                 >
-                                    <motion.div whileHover={{ scale: 1.075, y: -10 }}>
+                                    <motion.div whileHover={{ scale: 1.025, y: -10 }}>
                                         <Paper
                                             sx={{
                                                 display: "flex",

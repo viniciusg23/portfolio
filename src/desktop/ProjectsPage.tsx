@@ -1,9 +1,6 @@
-import { Avatar, Box, Chip, Container, Divider, Grid, IconButton, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Title from "../components/Title";
-import SubTitle from "../components/SubTitle";
 import TypewriterText from "../components/TypewriterText";
-import { GitHub, Visibility } from '@mui/icons-material';
-import { useNavigate } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import { projectsPageContent } from "../data/projectsPageContent";
 import { useState } from "react";

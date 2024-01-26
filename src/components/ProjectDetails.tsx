@@ -1,6 +1,5 @@
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography, Link as MuiLink, IconButton, Fade, Modal } from "@mui/material";
+import { Close } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import ReactMarkdown from 'react-markdown'
 
@@ -8,12 +7,7 @@ import "github-markdown-css/github-markdown-light.css";
 
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-// import Image from "./markdown/Image";
-
-
-// const imgLinks = require("@pondorasti/remark-img-links");
-
-
+import { useIsMobile } from "../helpers/IsMobile";
 
 interface IProjectDetailsProps {
     isOpen: boolean;
@@ -21,23 +15,23 @@ interface IProjectDetailsProps {
     handleClose: () => any;
 }
 
-
 function ProjectDetails(props: IProjectDetailsProps) {
     const { isOpen, selectedProject, handleClose } = props;
-    const [ readme, setReadme ] = useState<string>("");
+    const [readme, setReadme] = useState<string>("");
+    const isMobile = useIsMobile();
 
-    const Image = (props: any) => {    
-        const {alt, src, width} = props;
+    const Image = (props: any) => {
+        const { alt, src, width } = props;
 
         if (src.startsWith('http://') || src.startsWith('https://')) {
-            return <img alt={alt} src={src} style={{width: width}}/>;
+            return <img alt={alt} src={src} style={{ width: width }} />;
         }
 
-        return <img alt={alt} src={`https://raw.githubusercontent.com/${selectedProject}main/${src}`} style={{width: width}}/>;
+        return <img alt={alt} src={`https://raw.githubusercontent.com/${selectedProject}main/${src}`} style={{ width: width }} />;
     }
 
     const Link = (props: any) => {
-        const {children, href} = props;
+        const { children, href } = props;
 
         if (href.startsWith('http://') || href.startsWith('https://')) {
             return <a href={href} target="_blank">{children}</a>;
@@ -49,12 +43,10 @@ function ProjectDetails(props: IProjectDetailsProps) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                if(selectedProject){
+                if (selectedProject) {
                     const response = await fetch(`https://raw.githubusercontent.com/${selectedProject}main/README.md`);
                     const data = await response.text();
                     setReadme(data);
-                    console.log(data)
-
                 }
             } catch (erro) {
                 console.error("Request Error:", erro);
@@ -77,15 +69,35 @@ function ProjectDetails(props: IProjectDetailsProps) {
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     minWidth: "200px",
+                    width: "90%",
                     maxWidth: "980px",
                     height: "90%",
                     overflow: "auto"
                 }}>
-                    
+                    <Box
+                        sx={{
+                            width: "100%",
+                            backgroundColor: "primary.main",
+                            paddingY: "1em",
+                            position: "sticky",
+                            top: 0,
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                    >
+                        <Box>
+                            <Typography color="primary.contrastText" ml="1em">Detalhes buscados de: </Typography>
+                            <MuiLink color="primary.contrastText" sx={{ cursor: "pointer" }}>https://github.com/viniciusg23/stock-manager</MuiLink>
+                        </Box>
+                        <IconButton aria-label="delete">
+                            <Close />
+                        </IconButton>
+                    </Box>
+
                     <Box
                         className="markdown-body"
                         sx={{
-                            padding: "45px",
+                            padding: isMobile ? "15px" : "45px",
                         }}
                     >
                         <ReactMarkdown
@@ -94,13 +106,10 @@ function ProjectDetails(props: IProjectDetailsProps) {
                                 a: Link
                             }}
                             rehypePlugins={[rehypeRaw]}
-                            remarkPlugins={[
-                                remarkGfm, 
-                            ]}
+                            remarkPlugins={[remarkGfm]}
                             children={readme}
                         />
                     </Box>
-                    
 
                 </Paper>
             </Fade>

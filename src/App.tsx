@@ -6,18 +6,12 @@ import { ThemeProvider, createTheme, useMediaQuery, useTheme } from "@mui/materi
 import { useEffect, useMemo } from "react";
 import NavBar from "./components/NavBar";
 import { ColorModeContextProvider } from "./context/ColorModeContext";
+import { useIsMobile } from "./helpers/IsMobile";
 
 
 function App() {
 
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-    // const navigationBar = useMemo(() => {
-    //     return isMobile ? <MobileNavBar/> : <NavBar />;
-    // }, [isMobile]);
-
-
+    const isMobile = useIsMobile();
 
     return (
         <div className="App">

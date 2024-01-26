@@ -31,7 +31,7 @@ function NavBar() {
                             sx={{
                                 flexGrow: 1,
                                 display: "flex",
-                                justifyContent: "space-evenly"
+                                justifyContent: "space-around"
                             }}
                         >
                             <PageOptions />
