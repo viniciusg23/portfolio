@@ -9,7 +9,6 @@ interface IProjectCardProps {
     project: IProjectsPageContent;
     setModalOpen: () => void;
     setSelectedProjectPath: (project: string) => void;
-    setSelectedGitHubRepository: (project: string) => void;
 }
 
 function ProjectCard(props: IProjectCardProps) {
@@ -141,7 +140,6 @@ function ProjectCard(props: IProjectCardProps) {
                     onClick={() => {
                         props.setModalOpen();
                         props.setSelectedProjectPath(`${username}/${repositoryName}/`);
-                        props.setSelectedGitHubRepository(gitHubRepository)
                     }}
                 >
                     Detalhes &rarr;

@@ -11,8 +11,6 @@ function ProjectsPage() {
 
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const [selectedProjectPath, setSelectedProjectPath] = useState<string>("");
-    const [selectedGitHubRepository, setSelectedGitHubRepository] = useState<string>("");
-
 
     const handleOpen = () => setModalOpen(true);
     const handleClose = () => setModalOpen(false);
@@ -32,7 +30,6 @@ function ProjectsPage() {
             <ProjectDetails 
                 isOpen={modalOpen}
                 selectedProject={selectedProjectPath}
-                selectedGitHubRepository={selectedGitHubRepository}
                 handleClose={handleClose}
             />
 
@@ -47,7 +44,6 @@ function ProjectsPage() {
                                 project={project}
                                 setModalOpen={handleOpen}
                                 setSelectedProjectPath={setSelectedProjectPath}
-                                setSelectedGitHubRepository={setSelectedGitHubRepository}
                             />
                         </Grid>
                     ))}
