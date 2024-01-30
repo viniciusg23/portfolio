@@ -6,11 +6,11 @@ import { useState } from "react";
 
 function SkillsPage() {
 
-    const [alignment, setAlignment] = useState<string | null>('left');
+    // const [alignment, setAlignment] = useState<string | null>('left');
 
-    const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null) => {
-        setAlignment(newAlignment);
-    };
+    // const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null) => {
+    //     setAlignment(newAlignment);
+    // };
 
     return (
         <Container
@@ -25,7 +25,6 @@ function SkillsPage() {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center",
                     height: "90%",
                 }}
             >

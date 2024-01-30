@@ -6,9 +6,9 @@ import { useState } from "react";
 
 function SkillsPage() {
 
-    const [alignment, setAlignment] = useState<string | null>('left');
+    const [alignment, setAlignment] = useState<"column" | "grid">('grid');
 
-    const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null) => {
+    const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: "column" | "grid") => {
         setAlignment(newAlignment);
     };
 
