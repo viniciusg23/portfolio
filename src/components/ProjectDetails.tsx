@@ -1,5 +1,5 @@
-import { Box, Paper, Typography, Link as MuiLink, IconButton, Fade, Modal, useTheme, Fab } from "@mui/material";
-import { Close, KeyboardArrowUp } from "@mui/icons-material";
+import { Box, Paper, Fade, Modal, Fab } from "@mui/material";
+import { KeyboardArrowUp } from "@mui/icons-material";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown"
 
@@ -114,7 +114,6 @@ function ProjectDetails(props: IProjectDetailsProps) {
                         color="primary"
                         aria-label="Up"
                         sx={{
-                            // display: "none",
                             position: "sticky",
                             bottom: "1em",
                             left: "100%",

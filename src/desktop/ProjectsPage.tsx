@@ -24,7 +24,7 @@ function ProjectsPage() {
             }}
         >
             <Title title="Projetos" />
-            <TypewriterText text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aspernatur corrupti praesentium, distinctio velit placeat adipisci magnam aut maxime perferendis repellendus fugiat fuga omnis esse animi minima iste facere fugit?"} />
+            <TypewriterText text={projectsPageContent.subTitle} />
 
 
             <ProjectDetails 
@@ -37,7 +37,7 @@ function ProjectsPage() {
             <Box sx={{mt: "1em"}}>
                 <Grid container columnSpacing={3} columns={{ xs: 12, sm: 12, md: 12 }}>
 
-                    {projectsPageContent.map((project, index) => (
+                    {projectsPageContent.projects.map((project, index) => (
 
                         <Grid item xs={12} sm={12} md={6} key={index}>
                             <ProjectCard 

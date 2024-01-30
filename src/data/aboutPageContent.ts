@@ -9,9 +9,7 @@ interface IAboutPageContent {
 }
 
 export const aboutPageContent: IAboutPageContent = {
-    about: `
-        Muito prazer! Atualmente faço graduação em Engenharia de Software na PUC Minas. Eu sou apaixonado pela tecnologia, sempre buscando novos conhecimentos no Frontend e computação em núvem mas principalmente em tecnologias e teórias para o Backend. Busco sempre o máximo de qualidade em meus projetos, seguindo os melhores padrões, princípios e arquiteturas para o mesmo.
-    `,
+    about: "Sou uma pessoa curiosa para aprender novas ferramentas que me possibilitam criar soluções cada vez mais complexas e avançadas. Em meu tempo livre, gosto de estudar um pouco de música e tocar violão 🎶. Também sou fã de videogames 🎮. Além disso, meu esporte favorito é futebol americano 🏈.",
     interests: [
         {
             name: "Desenvolvimento Backend",

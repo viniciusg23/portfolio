@@ -7,8 +7,6 @@ interface ITypewriterTextProps {
 
 function TypewriterText(props: ITypewriterTextProps) {
 
-    const theme = useTheme();
-
     return (
 
         <Box
@@ -16,7 +14,7 @@ function TypewriterText(props: ITypewriterTextProps) {
                 position: "relative",
             }}
         >
-            <Typography textAlign="left" sx={{ display: "relative", color: theme.palette.background.default }}>
+            <Typography textAlign="left" sx={{ display: "relative", opacity: 0}}>
                 {props.text}
             </Typography>
 

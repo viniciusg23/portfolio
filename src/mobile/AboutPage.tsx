@@ -78,7 +78,7 @@ function AboutPage() {
             </Box>
 
             <Box mt="1em" px=".1em">
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 9 }}>
+                <Grid container columnSpacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 9 }}>
                     {aboutPageContent.interests.map((interest, index) => {
 
                         interestDelay += 0.3
@@ -96,8 +96,8 @@ function AboutPage() {
                                                 display: "flex",
                                                 gap: "1em",
                                                 padding: "1em",
-                                                background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`
-
+                                                background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+                                                marginBottom: "1em"
                                             }}
                                         >
                                             <interest.icon htmlColor={theme.palette.background.default} />

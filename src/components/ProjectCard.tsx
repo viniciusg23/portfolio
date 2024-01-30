@@ -1,12 +1,12 @@
 import { Visibility, GitHub } from "@mui/icons-material";
 import { Paper, Typography, IconButton, Divider, Chip, Avatar, Box, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { IProjectsPageContent } from "../data/projectsPageContent";
+import { IProjectContent } from "../data/projectsPageContent";
 import { outsideLink } from "../helpers/outsideLink";
 
 
 interface IProjectCardProps {
-    project: IProjectsPageContent;
+    project: IProjectContent;
     setModalOpen: () => void;
     setSelectedProjectPath: (project: string) => void;
 }
