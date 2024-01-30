@@ -18,6 +18,8 @@ jobs:
     - name: Set up environment
       run: |
         echo "CI=false" >> $GITHUB_ENV
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
     - name: Install dependencies
       run: npm install
     - name: Deploy to GitHub Pages
