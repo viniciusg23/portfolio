@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
 import { motion, useIsPresent } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFirstLoad } from "../context/FirstLoadProvider";
 
 interface IAnimatePageChangerProps {
@@ -12,7 +12,6 @@ function AnimatePageChanger(props: IAnimatePageChangerProps) {
     const {alreadyLoaded, toggleAlreadyLoaded} = useFirstLoad();
 
     const theme = useTheme();
-
     const isPresent = useIsPresent();
 
     useEffect(() => {

@@ -1,6 +1,5 @@
 import { Visibility, GitHub } from "@mui/icons-material";
 import { Paper, Typography, IconButton, Divider, Chip, Avatar, Box, useTheme } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { IProjectContent } from "../data/projectsPageContent";
 import { outsideLink } from "../helpers/outsideLink";
 
@@ -53,7 +52,7 @@ function ProjectCard(props: IProjectCardProps) {
                     alignItems: "center"
                 }}
             >
-                <Typography color={theme.palette.background.default} fontWeight={700} fontSize="1.25em">
+                <Typography textAlign="left" color={theme.palette.background.default} fontWeight={700} fontSize="1.25em">
                     {projectName}
                 </Typography>
                 <Box>

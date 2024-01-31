@@ -1,11 +1,9 @@
-import { Box, Container, Divider, Grid, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography, useTheme } from "@mui/material";
 import { aboutPageContent } from "../data/aboutPageContent"
-import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
 import TypewriterText from "../components/TypewriterText";
-import { useState, useEffect } from "react";
 
 
 function AboutPage() {
@@ -56,6 +54,7 @@ function AboutPage() {
                         <img
                             src={process.env.PUBLIC_URL + "/profile.jpg"}
                             width="212px"
+                            alt="profile photo"
                             style={{
                                 width: "100%",
                                 height: "auto",

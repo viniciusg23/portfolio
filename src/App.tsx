@@ -6,20 +6,20 @@ import { useTheme } from "@mui/material";
 import { useEffect } from "react";
 import NavBar from "./components/NavBar";
 import { ColorModeContextProvider } from "./context/ColorModeContext";
-import { useIsMobile } from "./helpers/IsMobile";
 
 
 function App() {
 
-    const isMobile = useIsMobile();
     const theme = useTheme();
 
     useEffect(() => {
         const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
+        // const bgColor = theme.palette.background.default;
+
         if (themeColorMetaTag) {
-            themeColorMetaTag.setAttribute('content', theme.palette.background.default);
+            themeColorMetaTag.setAttribute('content', "#fffeff");
         }
-    }, []);
+    }, [theme]);
 
     return (
         <div className="App">
@@ -30,7 +30,7 @@ function App() {
                     <FirstLoadProvider>
                         <>
                             <NavBar />
-                            <AnimatedRoutes isMobile={isMobile} />
+                            <AnimatedRoutes />
                         </>
                     </FirstLoadProvider>
                 </BrowserRouter>

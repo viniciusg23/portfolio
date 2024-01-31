@@ -40,11 +40,11 @@ export function ColorModeContextProvider({children} : any){
                 palette: {
                     mode: "light",
                     primary: {
-                        main: "#222",
-                        contrastText: "#fff"
+                        main: "#222222",
+                        contrastText: "#ffffff"
                     },
                     background: {
-                        default: "#fff",
+                        default: "#ffffff",
                         paper: "#F7F7F7",
                     }
                     
@@ -59,8 +59,8 @@ export function ColorModeContextProvider({children} : any){
                 palette: {
                     mode: "dark",
                     primary: {
-                        main: "#fff",
-                        contrastText: "#000"
+                        main: "#ffffff",
+                        contrastText: "#000000"
                     },
                     background: {
                         default: "#13131A",

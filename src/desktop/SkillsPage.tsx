@@ -2,15 +2,8 @@ import { Box, Container } from "@mui/material";
 import Title from "../components/Title";
 import { skillPageContent } from "../data/skillPageContent";
 import SkillElement from "../components/SkillElement";
-import { useState } from "react";
 
 function SkillsPage() {
-
-    const [alignment, setAlignment] = useState<"column" | "grid">('grid');
-
-    const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: "column" | "grid") => {
-        setAlignment(newAlignment);
-    };
 
     return (
         <Container
@@ -26,7 +19,7 @@ function SkillsPage() {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    height: "90%",
+                    mt: "2em"
                 }}
             >
                 <Container
@@ -34,7 +27,8 @@ function SkillsPage() {
                     sx={{
                         display: "flex",
                         gap: "1em",
-                        flexWrap: "wrap"
+                        flexWrap: "wrap",
+                        justifyContent: "center"
                     }}
                 >
                     {skillPageContent.map((skill, index) => (

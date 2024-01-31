@@ -2,13 +2,13 @@ import { Box, Paper, Fade, Modal, Fab } from "@mui/material";
 import { KeyboardArrowUp } from "@mui/icons-material";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown"
-
-import "github-markdown-css/github-markdown-light.css";
-
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { useIsMobile } from "../helpers/IsMobile";
 import ProjectDetailsNavBar from "./ProjectDetailsNavBar";
+
+import "github-markdown-css/github-markdown-light.css";
+
 
 interface IProjectDetailsProps {
     isOpen: boolean;

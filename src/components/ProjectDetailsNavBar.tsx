@@ -1,5 +1,5 @@
-import { ArrowBack, KeyboardArrowUp } from "@mui/icons-material";
-import { IconButton, Box, useScrollTrigger, Fade, Fab } from "@mui/material";
+import { ArrowBack } from "@mui/icons-material";
+import { IconButton, Box } from "@mui/material";
 import { useIsMobile } from "../helpers/IsMobile";
 
 

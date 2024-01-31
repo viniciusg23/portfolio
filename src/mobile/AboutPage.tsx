@@ -1,6 +1,5 @@
-import { Box, Container, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { aboutPageContent } from "../data/aboutPageContent"
-import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
@@ -55,8 +54,9 @@ function AboutPage() {
                         }}
                     >
                         <img
-                            src="/profile.jpg"
+                            src={process.env.PUBLIC_URL + "/profile.jpg"}
                             width="212px"
+                            alt="profile photo"
                             style={{
                                 width: "100%",
                                 height: "auto",

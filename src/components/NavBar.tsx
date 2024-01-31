@@ -1,8 +1,6 @@
 import { Box, AppBar, Container } from "@mui/material";
-
 import { motion } from "framer-motion"
 import PageOptions from "./PageOptions";
-
 
 
 function NavBar() {

@@ -7,7 +7,6 @@ import { ISkillPageContent } from "../data/skillPageContent";
 function SkillElement(props: ISkillPageContent) {
 
     const { name, description, learnMoreUrl, skillIconId, iconUrl } = props;
-
     const [open, setOpen] = useState<boolean>(false);
 
     const handleTooltipClose = () => {

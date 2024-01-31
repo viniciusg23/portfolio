@@ -1,4 +1,4 @@
-import { Typography, useTheme, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Typewriter from "typewriter-effect"
 
 interface ITypewriterTextProps {

@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import AnimatePageChanger from "./AnimatePageChanger";
@@ -6,11 +5,7 @@ import { pages } from "../configuration/PagesConfiguration";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 
-interface IAnimatedRoutesProps {
-    isMobile: boolean;
-}
-
-function AnimatedRoutes(props: IAnimatedRoutesProps) {
+function AnimatedRoutes() {
 
     const location = useLocation()
     const theme = useTheme();

@@ -2,15 +2,8 @@ import { Box, Container } from "@mui/material";
 import Title from "../components/Title";
 import { skillPageContent } from "../data/skillPageContent";
 import SkillElement from "../components/SkillElement";
-import { useState } from "react";
 
 function SkillsPage() {
-
-    // const [alignment, setAlignment] = useState<string | null>('left');
-
-    // const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null) => {
-    //     setAlignment(newAlignment);
-    // };
 
     return (
         <Container
@@ -25,7 +18,6 @@ function SkillsPage() {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    height: "90%",
                 }}
             >
                 <Container

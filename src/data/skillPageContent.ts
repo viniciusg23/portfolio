@@ -14,34 +14,10 @@ export const skillPageContent: ISkillPageContent[] = [
         skillIconId: "ts"
     },
     {
-        name: "NodeJs",
-        description: "Node.js é a ferramenta que vai nos entregar a capacidade de interpretar código JavaScript, de maneira bem similar ao navegador",
-        learnMoreUrl: "https://nodejs.org/en/about",
-        skillIconId: "nodejs"
-    },
-    {
         name: "JavaScript",
         description: "JavaScript é uma linguagem de programação de alto nível, interpretada e orientada a objetos.",
         learnMoreUrl: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         skillIconId: "javascript"
-    },
-    {
-        name: "React",
-        description: "React é uma biblioteca JavaScript para construir interfaces de usuário.",
-        learnMoreUrl: "https://reactjs.org/",
-        skillIconId: "react"
-    },
-    {
-        name: "Redux",
-        description: "Redux é uma biblioteca de gerenciamento de estado para aplicativos JavaScript.",
-        learnMoreUrl: "https://redux.js.org/",
-        skillIconId: "redux"
-    },
-    {
-        name: "SQLite",
-        description: "SQLite é uma biblioteca em linguagem C que implementa um banco de dados SQL embutido.",
-        learnMoreUrl: "https://www.sqlite.org/index.html",
-        skillIconId: "sqlite"
     },
     {
         name: "Java",
@@ -56,6 +32,66 @@ export const skillPageContent: ISkillPageContent[] = [
         skillIconId: "c"
     },
     {
+        name: "React",
+        description: "React é uma biblioteca JavaScript para construir interfaces de usuário.",
+        learnMoreUrl: "https://reactjs.org/",
+        skillIconId: "react"
+    },
+    {
+        name: "Redux",
+        description: "Redux é uma biblioteca de gerenciamento de estado para aplicativos JavaScript.",
+        learnMoreUrl: "https://redux.js.org/",
+        skillIconId: "redux"
+    },
+    {
+        name: "Material UI",
+        description: "Material-UI é uma biblioteca popular de componentes React para um desenvolvimento mais rápido e fácil.",
+        learnMoreUrl: "https://mui.com/",
+        skillIconId: "materialui"
+    },
+    {
+        name: "HTML",
+        description: "HTML é a linguagem de marcação padrão para documentos projetados para serem exibidos em um navegador da web.",
+        learnMoreUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        skillIconId: "html"
+    },
+    {
+        name: "CSS",
+        description: "CSS é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML.",
+        learnMoreUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+        skillIconId: "css"
+    },
+    {
+        name: "Bootstrap",
+        description: "Bootstrap é um framework front-end para desenvolvimento de sites e aplicativos web.",
+        learnMoreUrl: "https://getbootstrap.com/",
+        skillIconId: "bootstrap"
+    },
+    {
+        name: "NodeJs",
+        description: "Node.js é a ferramenta que vai nos entregar a capacidade de interpretar código JavaScript, de maneira bem similar ao navegador",
+        learnMoreUrl: "https://nodejs.org/en/about",
+        skillIconId: "nodejs"
+    },
+    {
+        name: "Sequelize",
+        description: "Sequelize é um ORM baseado em promessas para Node.js v4 e acima.",
+        learnMoreUrl: "https://sequelize.org/",
+        skillIconId: "sequelize"
+    },
+    {
+        name: "Express",
+        description: "Express é um framework de aplicativo da web para Node.js.",
+        learnMoreUrl: "https://expressjs.com/",
+        skillIconId: "express"
+    },
+    {
+        name: "vitest",
+        description: "Vitest é uma ferramenta versátil para testes em ambientes com TypeScript e JavaScript",
+        learnMoreUrl: "https://skillicons.dev/vitest",
+        skillIconId: "vitest"
+    },
+    {
         name: "Linux",
         description: "Linux é um kernel de sistema operacional de código aberto.",
         learnMoreUrl: "https://www.linux.org/",
@@ -66,12 +102,6 @@ export const skillPageContent: ISkillPageContent[] = [
         description: "Bash é uma linguagem de script de shell para sistemas operacionais Unix e Unix-like.",
         learnMoreUrl: "https://www.gnu.org/software/bash/",
         skillIconId: "bash"
-    },
-    {
-        name: "Bootstrap",
-        description: "Bootstrap é um framework front-end para desenvolvimento de sites e aplicativos web.",
-        learnMoreUrl: "https://getbootstrap.com/",
-        skillIconId: "bootstrap"
     },
     {
         name: "AWS",
@@ -85,12 +115,7 @@ export const skillPageContent: ISkillPageContent[] = [
         learnMoreUrl: "https://www.docker.com/",
         skillIconId: "docker"
     },
-    {
-        name: "vitest",
-        description: "Vitest é uma ferramenta versátil para testes em ambientes com TypeScript e JavaScript",
-        learnMoreUrl: "https://skillicons.dev/vitest",
-        skillIconId: "vitest"
-    },
+    
     {
         name: "MySQL",
         description: "MySQL é um sistema de gerenciamento de banco de dados relacional de código aberto.",
@@ -104,17 +129,13 @@ export const skillPageContent: ISkillPageContent[] = [
         skillIconId: "mongodb"
     },
     {
-        name: "Express",
-        description: "Express é um framework de aplicativo da web para Node.js.",
-        learnMoreUrl: "https://expressjs.com/",
-        skillIconId: "express"
+        name: "SQLite",
+        description: "SQLite é uma biblioteca em linguagem C que implementa um banco de dados SQL embutido.",
+        learnMoreUrl: "https://www.sqlite.org/index.html",
+        skillIconId: "sqlite"
     },
-    {
-        name: "Material UI",
-        description: "Material-UI é uma biblioteca popular de componentes React para um desenvolvimento mais rápido e fácil.",
-        learnMoreUrl: "https://mui.com/",
-        skillIconId: "materialui"
-    },
+    
+    
     {
         name: "Git",
         description: "Git é um sistema de controle de versão distribuído de código aberto.",
@@ -127,29 +148,13 @@ export const skillPageContent: ISkillPageContent[] = [
         learnMoreUrl: "https://github.com/",
         skillIconId: "github"
     },
-    {
-        name: "Sequelize",
-        description: "Sequelize é um ORM baseado em promessas para Node.js v4 e acima.",
-        learnMoreUrl: "https://sequelize.org/",
-        skillIconId: "sequelize"
-    },
+    
     {
         name: "Postman",
         description: "Postman é uma plataforma de colaboração para desenvolvimento de API.",
         learnMoreUrl: "https://www.postman.com/",
         skillIconId: "postman"
     },
-    {
-        name: "HTML",
-        description: "HTML é a linguagem de marcação padrão para documentos projetados para serem exibidos em um navegador da web.",
-        learnMoreUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-        skillIconId: "html"
-    },
-    {
-        name: "CSS",
-        description: "CSS é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML.",
-        learnMoreUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-        skillIconId: "css"
-    }    
+     
     
 ]
