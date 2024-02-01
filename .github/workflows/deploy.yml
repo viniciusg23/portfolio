@@ -22,10 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - uses: actions/checkout@v4
       - name: Configurar identidade Git
         run: |
-          git config --global user.email "viniciusgonzagaguilherme@gmail.com"
-          git config --global user.name "viniciusg23"
+          git remote set-url origin https://x-access-token:${PORTFOLIO_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+
 
       - name: deploy
         run: npm run deploy
