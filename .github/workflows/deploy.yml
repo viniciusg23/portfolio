@@ -43,10 +43,8 @@ jobs:
           node-version: '20.x'
           cache: 'npm'
 
-      - name: Set CI to false
-        uses: actions/env@v1
-        with:
-          CI: false
+      - name: Override CI environment variable
+        run: echo 'CI=false' >> $GITHUB_ENV
 
       - name: Install dependencies
         run: npm install
