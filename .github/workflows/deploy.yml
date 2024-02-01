@@ -22,11 +22,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Test
+        run: ls -la
+
       - uses: actions/checkout@v4
-      - name: Configurar identidade Git
+      - name: Git user configuration
         run: |
           git remote set-url origin https://x-access-token:${PORTFOLIO_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-
 
       - name: deploy
         run: npm run deploy
