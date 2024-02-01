@@ -24,10 +24,12 @@ jobs:
 
       - name: Install dependencies
         run: npm i
-        # run: npm ci
 
       - name: Install React Scripts
         run: npm i react-scripts
+
+      - name: Install TypeScript
+        run: npm i typescript
 
       - name: Test
         run: cat package.json
