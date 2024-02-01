@@ -1,31 +1,4 @@
-# name: Node.js CI
-
-# on:
-#   push:
-#     branches: "main"
-
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [18.x]
-
-#     steps:
-#     - uses: actions/checkout@v3
-#     - name: Use Node.js ${{ matrix.node-version }}
-#     uses: actions/setup-node@v3
-#     with:
-#       node-version: ${{ matrix.node-version }}
-#       cache: 'npm'
-#       - run: npm install
-#       - run: npm run deploy
-
-#       name: Node.js CI
-
-# name: Node.js CI
+name: Portfolio Update
 
 on:
   push:
@@ -48,6 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-  
+
+      - name: Configurar identidade Git
+        run: |
+          git config --global user.email "viniciusgonzagaguilherme@gmail.com"
+          git config --global user.name "viniciusg23"
+
       - name: deploy
         run: npm run deploy
