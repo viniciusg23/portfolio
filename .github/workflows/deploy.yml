@@ -23,8 +23,14 @@ jobs:
         run: npm ci
         # run: npm ci
 
+      - name: Install React Scripts
+        run: npm i react-scripts
+
       - name: Test
         run: cat package.json
+
+      - name: Test2
+        run: ls -la
 
       - uses: actions/checkout@v4
       - name: Git user configuration
