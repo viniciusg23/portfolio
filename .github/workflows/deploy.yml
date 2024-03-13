@@ -29,7 +29,7 @@ jobs:
         run: |
           echo ${GITHUB_REPOSITORY}
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy --branch deploy -cname "viniicius.com" -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages --cname viniicius.com -d build -u "github-actions-bot <support+actions@github.com>"
         env:
           CI: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
