@@ -24,8 +24,9 @@ jobs:
 
       - name: Publish github pages
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          echo ${GITHUB_REPOSITORY}
+          git remote set-url origin https://git:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy -u "github-actions-bot <support+actions@github.com>"
         env:
           CI: false
-          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
