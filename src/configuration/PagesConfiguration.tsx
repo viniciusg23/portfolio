@@ -20,25 +20,25 @@ export interface IPageOption {
 export const pages: IPageOption[] = [
     {
         name: "Home",
-        path: "portfolio/",
+        path: "",
         element: < HomePage key="home" />,
         mobileElement: < MobileHomePage key="home" />
     },
     {
         name: "Sobre",
-        path: "portfolio/about",
+        path: "about",
         element: < AboutPage />,
         mobileElement: < MobileAboutPage />
     },
     {
         name: "Projetos",
-        path: "portfolio/projects",
+        path: "projects",
         element: < ProjectsPage />,
         mobileElement: < MobileProjectsPage />
     },
     {
         name: "Habilidades",
-        path: "portfolio/skills",
+        path: "skills",
         element: < SkillsPage />,
         mobileElement: < MobileSkillsPage />
     },

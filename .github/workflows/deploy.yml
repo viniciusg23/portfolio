@@ -1,30 +1,30 @@
-name: Deploy to GitHub Pages
-
+name: Deploy Github Pages
 on:
   push:
     branches:
       - main
-
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    name: Deploy
+    runs-on: ubuntu-18.04
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
 
-    - name: Install Dependencies
-      run: npm i
+      - name: Install dependencies
+        run: npm install
+      # - name: Build NPM package
+      #   run: npm run build:lib
 
-    - name: Build
-      env:
-        CI: false
-      run: npm run build
-
-    - name: Deploy
-      run: npm run deploy
+      - name: Publish github pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}github.com/viniciusg23/portfolio.git
+          npm run deploy --branch deploy "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
