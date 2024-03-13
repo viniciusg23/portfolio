@@ -24,14 +24,12 @@ jobs:
   
       - name: Install dependencies
         run: npm install
-      # - name: Build NPM package
-      #   run: npm run build:lib
 
       - name: Publish github pages
         run: |
           echo ${GITHUB_REPOSITORY}
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -u "github-actions-bot <support+actions@github.com>"
+          npm run deploy --branch deploy -cname "viniicius.com" -u "github-actions-bot <support+actions@github.com>"
         env:
           CI: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
