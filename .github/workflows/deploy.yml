@@ -16,7 +16,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "18"
-
+          
+      - name: Configure git
+        run: |
+          git config --global user.email "support+actions@github.com"
+          git config --global user.name "github-actions-bot"
+  
       - name: Install dependencies
         run: npm install
       # - name: Build NPM package
