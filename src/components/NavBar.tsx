@@ -17,9 +17,8 @@ function NavBar() {
                 elevation={0}
                 sx={{
                     backgroundColor: "background.default",
-                    height: "7vh",
+                    height: "10vh",
                     display: "flex",
-                    alignItems: "center",
                     justifyContent: "center"
                 }} 
             >

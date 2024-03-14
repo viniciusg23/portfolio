@@ -9,12 +9,6 @@ import { outsideLink } from "../helpers/outsideLink";
 
 function HomePage() {
 
-    const theme = useTheme();
-
-    // const handleSocial = (url: string) => {
-    //     window.open(url, "_blank");
-    // }
-
     const handleDownload = () => {
         fetch("curriculum.pdf").then((response) => {
             response.blob().then((blob) => {             

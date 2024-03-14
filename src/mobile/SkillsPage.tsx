@@ -1,9 +1,14 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import Title from "../components/Title";
-import { skillPageContent } from "../data/skillPageContent";
+import { skillPageContent, categories } from "../data/skillPageContent";
 import SkillElement from "../components/SkillElement";
+import SubTitle from "../components/SubTitle";
+import TypewriterText from "../components/TypewriterText";
+
 
 function SkillsPage() {
+
+    const theme = useTheme();
 
     return (
         <Container
@@ -18,32 +23,57 @@ function SkillsPage() {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
+                    alignItems: "center",
                 }}
             >
-                <Container
+                <Box
                     maxWidth="sm"
                     sx={{
                         display: "flex",
-                        gap: "1em",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
+                        flexDirection: "column",
                     }}
                 >
-                    {skillPageContent.map((skill, index) => (
-                        <SkillElement 
-                            key={index}
-                            name={skill.name}
-                            description={skill.description}
-                            learnMoreUrl={skill.learnMoreUrl}
-                            iconUrl={skill.iconUrl}
-                            skillIconId={skill.skillIconId}
-                        />
+
+                    <TypewriterText text={skillPageContent.content} />
+
+                    {Object.keys(categories).map((category, index) => (
+                        <Box
+                            key={category}
+                            style={{
+                                marginBottom: "1em",
+                            }}
+                        >
+
+                            <SubTitle title={categories[category as keyof typeof categories]} />
+
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    gap: "0.75em",
+                                    flexWrap: "wrap",
+                                    justifyContent: "start",
+                                    mt: "1em"
+                                }}
+                            >
+                                {skillPageContent.skills.map((skill, index) => {
+                                    if (skill.category === category)
+                                        return (
+                                            <SkillElement
+                                                key={index}
+                                                name={skill.name}
+                                                description={skill.description}
+                                                learnMoreUrl={skill.learnMoreUrl}
+                                                category={skill.category}
+                                                iconUrl={skill.iconUrl}
+                                                skillIconId={skill.skillIconId}
+                                            />
+                                        )
+                                })}
+                            </Box>
+                        </Box>
                     ))}
-
-                </Container>
+                </Box>
             </Box>
-
-
 
         </Container >
     );

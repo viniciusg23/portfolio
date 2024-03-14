@@ -1,10 +1,10 @@
 import { Tooltip, Typography, Link, ClickAwayListener, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ISkillPageContent } from "../data/skillPageContent";
+import { ISkill } from "../data/skillPageContent";
 
 
-function SkillElement(props: ISkillPageContent) {
+function SkillElement(props: ISkill) {
 
     const { name, description, learnMoreUrl, skillIconId, iconUrl } = props;
     const [open, setOpen] = useState<boolean>(false);
@@ -51,7 +51,7 @@ function SkillElement(props: ISkillPageContent) {
                     style={{ cursor: "pointer" }}
                 >
                     {skillIconId ? (
-                        <img src={`https://skillicons.dev/icons?i=${skillIconId}`} width={"72px"} />
+                        <img src={`https://skillicons.dev/icons?i=${skillIconId}`} width={"64px"} />
                     ) : (
                         <img src={iconUrl} />
                     )}

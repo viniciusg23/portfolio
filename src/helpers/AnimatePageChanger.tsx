@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { motion, useIsPresent } from "framer-motion";
 import { useEffect } from "react";
-import { useFirstLoad } from "../context/FirstLoadProvider";
+import { useFirstLoad } from "../context/FirstLoadContext";
 
 interface IAnimatePageChangerProps {
     children: JSX.Element;
