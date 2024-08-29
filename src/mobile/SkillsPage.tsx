@@ -15,7 +15,6 @@ function SkillsPage() {
             }}
         >
             <Title title="Habilidades" />
-
             <TypewriterText text={skillPageContent.content} />
 
             <Box
