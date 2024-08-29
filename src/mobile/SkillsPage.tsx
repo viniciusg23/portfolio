@@ -1,14 +1,11 @@
-import { Box, Container, Typography, useTheme } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Title from "../components/Title";
-import { skillPageContent, categories } from "../data/skillPageContent";
-import SkillElement from "../components/SkillElement";
-import SubTitle from "../components/SubTitle";
+import { skillPageContent } from "../data/skillPageContent";
 import TypewriterText from "../components/TypewriterText";
+import IconCloud from "../components/magicui/icon-cloud";
 
 
 function SkillsPage() {
-
-    const theme = useTheme();
 
     return (
         <Container
@@ -19,6 +16,8 @@ function SkillsPage() {
         >
             <Title title="Habilidades" />
 
+            <TypewriterText text={skillPageContent.content} />
+
             <Box
                 sx={{
                     display: "flex",
@@ -26,53 +25,11 @@ function SkillsPage() {
                     alignItems: "center",
                 }}
             >
-                <Box
-                    maxWidth="sm"
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                    }}
-                >
 
-                    <TypewriterText text={skillPageContent.content} />
+                <div className="">
+                    <IconCloud iconSlugs={skillPageContent.skills} />
+                </div>
 
-                    {Object.keys(categories).map((category, index) => (
-                        <Box
-                            key={category}
-                            style={{
-                                marginBottom: "1em",
-                            }}
-                        >
-
-                            <SubTitle title={categories[category as keyof typeof categories]} />
-
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    gap: "0.75em",
-                                    flexWrap: "wrap",
-                                    justifyContent: "start",
-                                    mt: "1em"
-                                }}
-                            >
-                                {skillPageContent.skills.map((skill, index) => {
-                                    if (skill.category === category)
-                                        return (
-                                            <SkillElement
-                                                key={index}
-                                                name={skill.name}
-                                                description={skill.description}
-                                                learnMoreUrl={skill.learnMoreUrl}
-                                                category={skill.category}
-                                                iconUrl={skill.iconUrl}
-                                                skillIconId={skill.skillIconId}
-                                            />
-                                        )
-                                })}
-                            </Box>
-                        </Box>
-                    ))}
-                </Box>
             </Box>
 
         </Container >
