@@ -16,6 +16,7 @@ export const skillPageContent: ISkillPageContent = {
         "amazons3",
         "awslambda",
         "awselasticloadbalancing",
+        "nginx",
         
         //programming
         "openjdk",
