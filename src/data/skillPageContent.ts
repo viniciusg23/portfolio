@@ -45,6 +45,9 @@ export const skillPageContent: ISkillPageContent = {
         "git",
         "github",
         "linux",
+        "githubactions",
+        "yaml",
+        "npm"
 
     ]
 }
