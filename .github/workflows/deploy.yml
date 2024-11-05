@@ -39,6 +39,9 @@ jobs:
       - name: Build React app
         run: npm run build
 
+      - name: See content
+        run: ls -la
+
       - name: Upload to S3
         run: aws s3 sync build/ s3://portfolio-website-viniciusg23/ --delete
           
