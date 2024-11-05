@@ -13,7 +13,7 @@ jobs:
     defaults:
       run: 
         shell: bash
-        working-directory: src/
+        working-directory: ./
     env:
       CI: false
 
