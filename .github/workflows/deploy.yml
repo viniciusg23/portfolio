@@ -1,35 +1,54 @@
-name: Deploy Github Pages
+name: 'deploy-frontend'
+
 on:
   push:
     branches:
-      - main
+    - main
+
 jobs:
-  build-and-deploy:
-    name: Deploy
+  deployment:
+    name: 'deploy-frontend'
     runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run: 
+        shell: bash
+        working-directory: src/
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: us-east-1
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
-          
-      - name: Configure git
-        run: |
-          git config --global user.email "support+actions@github.com"
-          git config --global user.name "github-actions-bot"
-  
+          node-version: '18'
+
       - name: Install dependencies
         run: npm install
 
-      - name: Publish github pages
-        run: |
-          echo ${GITHUB_REPOSITORY}
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy --cname viniicius.com -u "github-actions-bot <support+actions@github.com>"
-        env:
-          CI: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build React app
+        run: npm run build
+
+      - name: Upload to S3
+        run: aws s3 sync build/ s3://portfolio-website-viniciusg23/ --delete
+          
+      
+  check-run:
+    needs: deployment
+    runs-on: ubuntu-latest
+    steps:
+    - name: check
+      run: |-
+        if [[ ${{ needs.deployment.result }} == 'success' ]]; then
+          exit 0;
+        else:
+          exit 1;
+        fi
